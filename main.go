@@ -156,7 +156,7 @@ func main() {
 	fmt.Println("x is ", x)
 	fmt.Println("myFirstPoint is ", myFirstPoint)
 
-	*myFirstPoint = 20 // change the value of x
+	*myFirstPoint = 20 // content value of x
 
 	fmt.Println("x is ", x)
 
