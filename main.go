@@ -66,6 +66,34 @@ type Employee struct {
 	FullTime bool
 }
 
+type Vehicle struct {
+	NumberOfWheels     int
+	NumberOfPassengers int
+}
+
+type Car2 struct {
+	Make       string
+	Model      string
+	Year       int
+	isElectric bool
+	isHybrid   bool
+	Vehicle    Vehicle
+}
+
+func (vehicle Vehicle) showDetails() {
+	fmt.Println("Number of wheels", vehicle.NumberOfWheels)
+	fmt.Println("Number of passengers", vehicle.NumberOfPassengers)
+}
+
+func (car2 Car2) show() {
+	fmt.Println("Make", car2.Make)
+	fmt.Println("Model", car2.Model)
+	fmt.Println("Year", car2.Year)
+	fmt.Println("Is electric", car2.isElectric)
+	fmt.Println("Is hybrid", car2.isHybrid)
+	car2.Vehicle.showDetails()
+}
+
 func (d *Cat) Says() string {
 	return d.Sound
 }
@@ -288,6 +316,23 @@ func main() {
 			fmt.Println(employee.Name, "matches our unclear criteria")
 		}
 	}
+
+	// composition
+	suv := Vehicle{
+		NumberOfWheels:     4,
+		NumberOfPassengers: 5,
+	}
+
+	volvoXC90 := Car2{
+		Make:       "Volvo",
+		Model:      "XC90",
+		Year:       2020,
+		isElectric: false,
+		isHybrid:   true,
+		Vehicle:    suv,
+	}
+
+	volvoXC90.show()
 
 }
 
